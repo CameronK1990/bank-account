@@ -1,6 +1,7 @@
 //Business
 
-function Account (amount) {
+function Account (name, amount) {
+  this.name = name;
   this.amount = amount;
 }
 
@@ -13,14 +14,16 @@ Account.prototype.withdraw = function (subtract) {
 }
 
 // UI logic
-let userAccount = new Account(0)
+let userAccount = new Account("", 0)
 
 $(document).ready(function() {
   $("#new-account").submit(function(event) {
     event.preventDefault();
+    const inputName = $("input#name").val();
     const initialAmount = parseFloat($("input#initial-amount").val());
-    userAccount.deposit(initialAmount);
-    $("#balance").html("Your balance is $" + userAccount.amount.toFixed(2));
+    userAccount.name = inputName;
+    userAccount.amount = initialAmount;
+    $("#balance").html("Thanks " + userAccount.name + ", your balance is $" + userAccount.amount.toFixed(2));
     $("#new-account").hide();
     $("#accountmgmt").show();
   });
@@ -28,12 +31,14 @@ $(document).ready(function() {
     event.preventDefault();
     const add = parseFloat($("input#add").val());
     userAccount.deposit(add);
-    $("#balance").html("Your balance is $" + userAccount.amount.toFixed(2));
+    $("input#add").val("");
+    $("#balance").html("Thanks " + userAccount.name + ", your balance is $" + userAccount.amount.toFixed(2));
   });
   $("#withdraw").submit(function(event) {
     event.preventDefault();
     const subtract = parseFloat($("input#subtract").val());
     userAccount.withdraw(subtract);
-    $("#balance").html("Your balance is $" + userAccount.amount.toFixed(2));
+    $("input#subtract").val("");
+    $("#balance").html("Thanks " + userAccount.name + ", your balance is $" + userAccount.amount.toFixed(2));
   });
 });
