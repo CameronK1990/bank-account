@@ -1,6 +1,6 @@
-# _Movie Tickets_
+# _Bank of Epicodus_
 
-#### _This is a project exploring Objects, Constructors and Prototypes in JavaScript_
+#### _This is a practice project_
 
 #### By _**Benjamin Wilson + Cameron Kronsbein**_
 
@@ -8,16 +8,17 @@
 
 * _HTML_
 * _JavaScript_
+* _CSS_
 * _jQuery_
 
 ## Description
 
-_This webpage acts as a ticket calculator for a made up movie theater._
+_This webpage simulates opening a bank account and depositing/withdrawing money using objects._
 
 ## Setup/Installation Requirements
 
 * _Clone repository_
-* _tclick directory_
+* _click directory_
 * _Open index.html in broswer_
 
 ## License
